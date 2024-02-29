@@ -1,9 +1,13 @@
+{{ $summary_image := partial "func/GetSummaryImage.html" . }}
 <div class="relative w-100 mb4 bg-white nested-copy-line-height">
   <div class="bg-white mb3 pa4 gray overflow-hidden">
     {{with .CurrentSection.Title }}<span class="f6 db">{{ . }}</span>{{end}}
-    <h1 class="f3 near-black">
+    <h1 class="f3 near-black" style="text-align: center">
       <a href="{{ .RelPermalink }}" class="link black dim">
-        {{ .Title }}
+        {{ if $summary_image }}
+            <img src="{{ $summary_image }}" class="img" alt="image from {{ .Title }}" width="200"> <br>
+        {{ end }}
+        {{ .Title }} 
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">

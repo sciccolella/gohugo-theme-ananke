@@ -60,8 +60,11 @@
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
-      {{- partial "menu-contextual.html" . -}}
+    <aside class="w-30-l mt6-l aside-summary">
+      {{ $summary_image := partial "func/GetSummaryImage.html" . }}
+      {{ if $summary_image }}
+          <img src="{{ $summary_image }}" class="img" alt="image from {{ .Title }}" width="200"> <br>
+      {{ end }}
     </aside>
 
   </article>
